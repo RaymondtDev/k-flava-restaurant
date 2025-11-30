@@ -14,10 +14,10 @@
     );
   });
 
-  const specialDeals = ref(menuItems.items.filter(item => item.category === 'special-deal')).map(i => ({
+  const specialDeals = ref(menuItems.items.filter(item => item.category === 'special-deal').map(i => ({
     ...i,
     thumbnail: thumbnailUrls.value[i.thumbnail]
-  }));
+  })));
 
   const currentIndex = ref(0);
 
