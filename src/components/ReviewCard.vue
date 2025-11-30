@@ -1,9 +1,11 @@
 <script setup>
+  import profilePlaceholder from '../assets/images/reviews/placeholder.png'
+
   const props = defineProps({
     profileImage: {
       type: String,
       required: false,
-      default: "../assets/images/reviews/placeholder.png"
+      default: profilePlaceholder
     },
     name: {
       type: String,
@@ -21,14 +23,12 @@
       default: "Great service. Great food."
     }
   })
-
-  const parsedImage = new URL(props.profileImage, import.meta.url).href;
 </script>
 
 <template>
   <div class="review-card">
     <div class="image">
-      <img :src="parsedImage" alt="reviewer-profile-image">
+      <img :src="profileImage" alt="reviewer-profile-image">
     </div>
     <div class="info">
       <div class="stars">

@@ -1,11 +1,8 @@
 <script setup>
   import { ref, onMounted } from 'vue';
-  import menuItems from '../menu-items.json';
+  import { menuItems } from '../menu-items';
 
-  const specialDeals = ref(menuItems.items.filter(item => item.category === 'special-deal').map(item => ({
-    ...item,
-    thumbnail: new URL(item.thumbnail, import.meta.url).href
-  })));
+  const specialDeals = ref(menuItems.items.filter(item => item.category === 'special-deal'));
 
   const currentIndex = ref(0);
 

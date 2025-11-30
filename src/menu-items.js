@@ -1,0 +1,179 @@
+import pizzaThumb1 from './assets/images/menu-items/pizza1-thumbnail.jpg'
+import pizzaThumb2 from './assets/images/menu-items/pizza2-thumbnail.jpg'
+import steakThumb from './assets/images/menu-items/steak-thumbnail.jpg'
+import chickenSpecial from './assets/images/special-deals/quarter-chicken-meal.png'
+import bbqSpecial from './assets/images/special-deals/bbq-ribs-meal.png'
+import pizzaSpecial from './assets/images/special-deals/pepperoni-pizza-meal.png'
+
+export const menuItems = {
+    categories : ["pizza", "bbq", "sides", "desserts", "drinks"],
+    items: [
+      {
+        id: 1,
+        name: "Large Chicken Pizza",
+        price: 102.99,
+        description: "A delicious large pizza topped with grilled chicken, mozzarella cheese, and fresh vegetables.",
+        category: "pizza",
+        thumbnail: pizzaThumb2
+      },
+      {
+        id: 2,
+        name: "Medium Chicken Pizza",
+        price: 94.99,
+        description: "A tasty medium pizza with grilled chicken, mozzarella cheese, and fresh vegetables.",
+        category: "pizza",
+        thumbnail: pizzaThumb2
+      },
+      {
+        id: 3,
+        name: "Small Chicken Pizza",
+        price: 55.99,
+        description: "A delightful small pizza featuring grilled chicken, mozzarella cheese, and fresh vegetables.",
+        category: "pizza",
+        thumbnail: pizzaThumb2
+      },
+      {
+        id: 4,
+        name: "Large Vegetarian Pizza",
+        price: 90.99,
+        description: "A large pizza loaded with fresh vegetables and mozzarella cheese.",
+        category: "pizza",
+        thumbnail: pizzaThumb1
+      },
+      {
+        id: 5,
+        name: "Medium Vegetarian Pizza",
+        price: 67.49,
+        description: "A medium pizza topped with a variety of fresh vegetables and mozzarella cheese.",
+        category: "pizza",
+        thumbnail: pizzaThumb1
+      },
+      {
+        id: 6,
+        name: "Large Hawaiian Pizza",
+        price: 110.00,
+        description: "A large pizza topped with ham, pineapple, and mozzarella cheese.",
+        category: "pizza",
+        thumbnail: pizzaThumb1
+      },
+      {
+        id: 7,
+        name: "Medium Hawaiian Pizza",
+        price: 85.00,
+        description: "A medium pizza topped with ham, pineapple, and mozzarella cheese.",
+        category: "pizza",
+        thumbnail: pizzaThumb1
+      },
+      {
+        id: 8,
+        name: "Small Hawaiian Pizza",
+        price: 60.00,
+        description: "A small pizza topped with ham, pineapple, and mozzarella cheese.",
+        category: "pizza",
+        thumbnail: pizzaThumb1
+      },
+      {
+        id: 9,
+        name: "Large Pepperoni Pizza",
+        price: 120.00,
+        description: "A large pizza loaded with pepperoni slices and mozzarella cheese.",
+        category: "pizza",
+        thumbnail: pizzaThumb2
+      },
+      {
+        id: 10,
+        name: "Medium Pepperoni Pizza",
+        price: 80.00,
+        description: "A medium pizza loaded with pepperoni slices and mozzarella cheese.",
+        category: "pizza",
+        thumbnail: pizzaThumb2
+      },
+      {
+        id: 11,
+        name: "Small Pepperoni Pizza",
+        price: 65.00,
+        description: "A small pizza loaded with pepperoni slices and mozzarella cheese.",
+        category: "pizza",
+        thumbnail: pizzaThumb2
+      },
+      {
+        id: 12,
+        name: "400g BBQ Baby Back Ribs",
+        price: 135.00,
+        description: "Succulent baby back ribs glazed with BBQ sauce, served with a side of fries and onion rings.",
+        category: "bbq",
+        thumbnail: steakThumb
+      },
+      {
+        id: 13,
+        name: "400g T-Bone Steak",
+        price: 180.00,
+        description: "Juicy T-Bone steak grilled to perfection, served with a side of vegetables.",
+        category: "bbq",
+        thumbnail: steakThumb
+      },
+      {
+        id: 14,
+        name: "400g Sirloin Steak",
+        price: 200.00,
+        description: "Juicy Sirloin steak grilled to perfection, served with a side of mash and gravy.",
+        category: "bbq",
+        thumbnail: steakThumb
+      }, 
+      {
+        id: 15,
+        name: "BBQ Butterfly Chicken",
+        price: 60.00,
+        description: "Tender butterfly chicken marinated and grilled, served with a side of salad.",
+        category: "bbq",
+        thumbnail: steakThumb
+      },
+      {
+        id: 16,
+        name: "BBQ Quarter Chicken",
+        price: 45.55,
+        description: "Juicy quarter chicken glazed with BBQ sauce, served with a side of fries.",
+        category: "bbq",
+        thumbnail: steakThumb
+      },
+      {
+        name: "BBQ Quarter Chicken Meal",
+        price: 65.55,
+        description: "Juicy grilled BBQ quarter chicken served with pap, gravy, and salad.",
+        items: [
+          "BBQ Quarter Chicken",
+          "Pap",
+          "Gravy",
+          "Salad"
+        ],
+        category: "special-deal",
+        thumbnail: chickenSpecial
+      },
+      {
+        name: "Pepperoni Pizza Combo Meal",
+        price: 225.00,
+        description: "Large pepperoni pizza served with BBQ chicken wings (6pc), fries, and a 500ml drink.",
+        items: [
+          "Large Pepperoni Pizza",
+          "BBQ Chicken Wings (6pc)",
+          "Medium Fries",
+          "500ml Drink"
+        ],
+        category: "special-deal",
+        thumbnail: pizzaSpecial
+      },
+      {
+        name: "BBQ Ribs Combo Meal",
+        price: 265.55,
+        description: "300g BBQ baby back ribs served with fries, onion rings, and a 500ml drink.",
+        items: [
+          "300g BBQ Baby Back Ribs",
+          "Large Fries",
+          "Onion Rigns",
+          "500ml Drink"
+        ],
+        category: "special-deal",
+        thumbnail: bbqSpecial
+      }
+    ]
+  }

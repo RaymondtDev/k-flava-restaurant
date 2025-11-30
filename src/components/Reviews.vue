@@ -1,6 +1,6 @@
 <script setup>
   import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
-  import reviewsData from '../reviews.json';
+  import { reviewsData } from '../reviews';
   import ReviewCard from './ReviewCard.vue';
 
   const reviews = ref(reviewsData);

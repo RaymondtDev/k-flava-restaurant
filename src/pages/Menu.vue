@@ -1,14 +1,11 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import SpecialDeals from '../components/SpecialDeals.vue'
-import menuItems from '../menu-items.json'
+import { menuItems } from '../menu-items';
 import Reviews from '../components/Reviews.vue'
 
 const categories = ref(['all', ...menuItems.categories]);
-const allItems = ref(menuItems.items.filter(item => item.category !== 'special-deal').map(i => ({
-  ...i,
-  thumbnail: new URL(i.thumbnail, import.meta.url).href
-})));
+const allItems = ref(menuItems.items.filter(item => item.category !== 'special-deal'));
 
 // State
 const currentCategory = ref('all'); // current visible category
