@@ -1,15 +1,11 @@
-import 'dotenv/config';
-import express from 'express';
 import { Resend } from 'resend';
-
-const router = express.Router();
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-router.post('/contact', async (req, res) => {
-  const { name, surname, email, number, message } = req.body;
-
+export async function POST(request) {
   try {
+    const { name, surname, email, number, message } = await request.json()
+
     await resend.emails.send({
       from: `Mail from ${name} <onboarding@resend.dev>`,
       to: process.env.EMAIL,
@@ -26,11 +22,9 @@ router.post('/contact', async (req, res) => {
       `,
     });
 
-    res.json({ success: true });
+    return new Response(JSON.stringify({ success: true }), { status: 200 })
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to send email.' });
+    return new Response(JSON.stringify({ error: 'Failed to send email.' }), { status: 500 })
   }
-});
-
-export default router;
+}

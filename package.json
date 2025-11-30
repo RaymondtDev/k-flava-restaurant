@@ -6,11 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "server": "node index.js",
-    "start": "node index.js",
-    "dev:full": "npm run build && npm run server",
-    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
+    "preview": "vite preview"
   },
   "dependencies": {
     "axios": "^1.13.2",

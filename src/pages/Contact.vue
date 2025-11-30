@@ -1,6 +1,5 @@
 <script setup>
   import { ref } from 'vue';
-  import axios from 'axios';
 
   const fullName = ref('');
   const surname = ref('');
@@ -28,7 +27,7 @@
     // console.log(data)
 
     try {
-      const res = await fetch('http://localhost:3000/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
