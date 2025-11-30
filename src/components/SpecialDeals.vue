@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, onMounted } from 'vue';
+  import { ref, onMounted, computed } from 'vue';
   import menuItems from '../menu-items.json';
 
   const thumbnailUrls = computed(() => {
