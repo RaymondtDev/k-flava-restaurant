@@ -3,7 +3,7 @@
     profileImage: {
       type: String,
       required: false,
-      default: "/images/reviews/placeholder.png"
+      default: "placeholder.png"
     },
     name: {
       type: String,
@@ -28,7 +28,7 @@
 <template>
   <div class="review-card">
     <div class="image">
-      <img :src="parsedImage" alt="reviewer-profile-image">
+      <img :src="`/images/reviews/${profileImage}`" alt="reviewer-profile-image">
     </div>
     <div class="info">
       <div class="stars">

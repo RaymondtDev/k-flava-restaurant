@@ -47,7 +47,7 @@
         </div>
         <div class="item-thumbnail">
           <!-- load thumbnailUrl image -->
-          <img :src="item.thumbnail" :alt="item.name"
+          <img :src="`/images/special-deals/${image.thumbnail}`" :alt="item.name"
         </div>
       </div>
     </div>
