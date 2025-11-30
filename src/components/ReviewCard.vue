@@ -28,7 +28,7 @@
 <template>
   <div class="review-card">
     <div class="image">
-      <img :src="`/images/reviews/${profileImage}`" alt="reviewer-profile-image">
+      <img :src="`../assets/images/reviews/${profileImage}`" alt="reviewer-profile-image">
     </div>
     <div class="info">
       <div class="stars">

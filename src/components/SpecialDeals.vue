@@ -2,10 +2,7 @@
   import { ref, onMounted } from 'vue';
   import menuItems from '../menu-items.json';
 
-  const specialDeals = ref(menuItems.items.filter(item => item.category === 'special-deal').map(item => ({
-    ...item,
-    thumbnail: new URL(item.thumbnail, import.meta.url).href
-  })));
+  const specialDeals = ref(menuItems.items.filter(item => item.category === 'special-deal'));
 
   const currentIndex = ref(0);
 
@@ -47,7 +44,7 @@
         </div>
         <div class="item-thumbnail">
           <!-- load thumbnailUrl image -->
-          <img :src="`/images/special-deals/${image.thumbnail}`" :alt="item.name"
+          <img :src="`../assets/images/special-deals/${item.thumbnail}`" :alt="item.name"
         </div>
       </div>
     </div>
