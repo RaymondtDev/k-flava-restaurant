@@ -3,7 +3,7 @@
     profileImage: {
       type: String,
       required: false,
-      default: "../assets/images/reviews/placeholder.png"
+      default: "/images/reviews/placeholder.png"
     },
     name: {
       type: String,
