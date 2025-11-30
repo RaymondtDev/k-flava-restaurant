@@ -2,7 +2,22 @@
   import { ref, onMounted } from 'vue';
   import menuItems from '../menu-items.json';
 
-  const specialDeals = ref(menuItems.items.filter(item => item.category === 'special-deal'));
+  const thumbnailUrls = computed(() => {
+  const modules = import.meta.glob('/src/assets/images/special-deals/*.{jpg,png,jpeg,webp}', { eager: true, query: '?url', query: 'url' });
+  
+    return Object.fromEntries(
+      Object.entries(modules).map(([key, value]) => {
+        // Extract filename from path, e.g., "/src/assets/images/special-deals/pizza.jpg" → "pizza.jpg"
+        const filename = key.split('/').pop();
+        return [filename, value];
+      })
+    );
+  });
+
+  const specialDeals = ref(menuItems.items.filter(item => item.category === 'special-deal')).map(i => ({
+    ...i,
+    thumbnail: thumbnailUrls.value[i.thumbnail]
+  }));
 
   const currentIndex = ref(0);
 
@@ -44,7 +59,7 @@
         </div>
         <div class="item-thumbnail">
           <!-- load thumbnailUrl image -->
-          <img :src="`/images/special-deals/${item.thumbnail}`" :alt="item.name"
+          <img :src="item.thumbnail" :alt="item.name"
         </div>
       </div>
     </div>
