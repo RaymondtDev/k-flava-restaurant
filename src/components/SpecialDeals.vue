@@ -16,7 +16,7 @@
 
   const specialDeals = ref(menuItems.items.filter(item => item.category === 'special-deal').map(i => ({
     ...i,
-    thumbnail: thumbnailUrls.value[i.thumbnail]
+    thumbnailUrl: thumbnailUrls.value[i.thumbnail]
   })));
 
   const currentIndex = ref(0);
@@ -59,7 +59,7 @@
         </div>
         <div class="item-thumbnail">
           <!-- load thumbnailUrl image -->
-          <img :src="item.thumbnail" :alt="item.name"
+          <img :src="item.thumbnailUrl" :alt="item.name"
         </div>
       </div>
     </div>
