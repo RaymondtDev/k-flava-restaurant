@@ -15,7 +15,7 @@
       "price": 94.99,
       "description": "A tasty medium pizza with grilled chicken, mozzarella cheese, and fresh vegetables.",
       "category": "pizza",
-      "thumbnail": "images/menu-items/pizza2-thumbnail.jpg"
+      "thumbnail": "pizza2-thumbnail.jpg"
     },
     {
       "id": 3,
