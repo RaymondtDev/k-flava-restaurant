@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import SpecialDeals from '../components/SpecialDeals.vue'
-import menuItems from '../menu-items.json'
+import { menuItems } from '../menu-items';
 import Reviews from '../components/Reviews.vue'
 
 const categories = ref(['all', ...menuItems.categories]);

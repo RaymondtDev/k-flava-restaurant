@@ -1,4 +1,5 @@
 <script setup>
+<<<<<<< HEAD
   import { ref, onMounted, computed } from 'vue';
   import menuItems from '../menu-items.json';
 
@@ -18,6 +19,12 @@
     ...i,
     thumbnailUrl: thumbnailUrls.value[i.thumbnail]
   })));
+=======
+  import { ref, onMounted } from 'vue';
+  import { menuItems } from '../menu-items';
+
+  const specialDeals = ref(menuItems.items.filter(item => item.category === 'special-deal'));
+>>>>>>> old-state
 
   const currentIndex = ref(0);
 
