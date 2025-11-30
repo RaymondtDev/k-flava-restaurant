@@ -1,30 +1,8 @@
 <script setup>
-<<<<<<< HEAD
-  import { ref, onMounted, computed } from 'vue';
-  import menuItems from '../menu-items.json';
-
-  const thumbnailUrls = computed(() => {
-  const modules = import.meta.glob('/src/assets/images/special-deals/*.{jpg,png,jpeg,webp}', { eager: true, query: '?url', query: 'url' });
-  
-    return Object.fromEntries(
-      Object.entries(modules).map(([key, value]) => {
-        // Extract filename from path, e.g., "/src/assets/images/special-deals/pizza.jpg" → "pizza.jpg"
-        const filename = key.split('/').pop();
-        return [filename, value];
-      })
-    );
-  });
-
-  const specialDeals = ref(menuItems.items.filter(item => item.category === 'special-deal').map(i => ({
-    ...i,
-    thumbnailUrl: thumbnailUrls.value[i.thumbnail]
-  })));
-=======
   import { ref, onMounted } from 'vue';
   import { menuItems } from '../menu-items';
 
   const specialDeals = ref(menuItems.items.filter(item => item.category === 'special-deal'));
->>>>>>> old-state
 
   const currentIndex = ref(0);
 

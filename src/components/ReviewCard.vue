@@ -5,11 +5,7 @@
     profileImage: {
       type: String,
       required: false,
-<<<<<<< HEAD
-      default: "placeholder.png"
-=======
       default: profilePlaceholder
->>>>>>> old-state
     },
     name: {
       type: String,
@@ -32,11 +28,7 @@
 <template>
   <div class="review-card">
     <div class="image">
-<<<<<<< HEAD
-      <img :src="`/images/reviews/${profileImage}`" alt="reviewer-profile-image">
-=======
       <img :src="profileImage" alt="reviewer-profile-image">
->>>>>>> old-state
     </div>
     <div class="info">
       <div class="stars">
