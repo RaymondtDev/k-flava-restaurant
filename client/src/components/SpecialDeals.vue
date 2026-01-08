@@ -1,14 +1,60 @@
 <script setup>
-  import { ref, onMounted } from 'vue';
-  import { menuItems } from '../menu-items';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { menuItems } from '../menu-items';
 
-  const specialDeals = ref(menuItems.items.filter(item => item.category === 'special-deal'));
+const specialDeals = ref(menuItems.items.filter(item => item.category === 'special-deal'));
 
-  const currentIndex = ref(0);
+const currentIndex = ref(0);
+const dealsContainer = ref(null);
 
-  const goToSlide = (index) => {
-    currentIndex.value = index
+let rafId = null;
+
+const updateIndexFromScroll = () => {
+  const el = dealsContainer.value;
+  if (!el) return;
+  const width = el.clientWidth || 1;
+  const idx = Math.round(el.scrollLeft / width);
+  currentIndex.value = Math.min(Math.max(idx, 0), specialDeals.value.length - 1);
+};
+
+const onScroll = () => {
+  if (rafId) cancelAnimationFrame(rafId);
+  rafId = requestAnimationFrame(() => {
+    updateIndexFromScroll();
+    rafId = null;
+  });
+};
+
+const onResize = () => {
+  // Keep the currently selected slide in view after resize
+  const el = dealsContainer.value;
+  if (!el) return;
+  el.scrollTo({ left: currentIndex.value * el.clientWidth });
+};
+
+const goToSlide = (index) => {
+  const el = dealsContainer.value;
+  if (el) {
+    el.scrollTo({ left: index * el.clientWidth, behavior: 'smooth' });
   }
+  currentIndex.value = index;
+};
+
+onMounted(() => {
+  const el = dealsContainer.value;
+  if (!el) return;
+  el.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onResize);
+  // ensure index matches initial scroll position
+  updateIndexFromScroll();
+});
+
+onBeforeUnmount(() => {
+  const el = dealsContainer.value;
+  if (el) el.removeEventListener('scroll', onScroll);
+  window.removeEventListener('resize', onResize);
+  if (rafId) cancelAnimationFrame(rafId);
+});
 
 </script>
 
@@ -27,12 +73,12 @@
         ></p>
       </div>
     </div>
-    <div class="deals-cards">
+    <div class="deals-cards" ref="dealsContainer">
       <div 
         class="deal-card" 
         v-for="(item,index) in specialDeals" 
         :key="index" 
-        :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
+        
       >
         <div class="item-info">
           <h4>{{ item.name }}</h4>
@@ -44,7 +90,7 @@
         </div>
         <div class="item-thumbnail">
           <!-- load thumbnailUrl image -->
-          <img :src="item.thumbnail" :alt="item.name"
+          <img :src="item.thumbnail" :alt="item.name" />
         </div>
       </div>
     </div>
@@ -89,9 +135,12 @@
 
   .deals-cards {
     display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
   }
 
   .deal-card {
+    scroll-snap-align: start;
     flex: 0 0 100%;
     display: grid;
     grid-template-columns: 40% 60%;

@@ -94,7 +94,7 @@
   .reviews-slides {
     display: flex;
     overflow-x: hidden;
-
+    
     .reviews-slide {
       flex: 0 0 100%;
       display: flex;
