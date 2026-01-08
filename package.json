@@ -1,0 +1,24 @@
+{
+  "name": "restaurant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd server && npm run start",
+    "build-client": "cd client && npm install && npm run build",
+    "deploy": "npm run build-client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaymondtDev/k-flava-restaurant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RaymondtDev/k-flava-restaurant/issues"
+  },
+  "homepage": "https://github.com/RaymondtDev/k-flava-restaurant#readme"
+}
