@@ -135,8 +135,14 @@ onBeforeUnmount(() => {
 
   .deals-cards {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: auto;
     scroll-snap-type: x mandatory;
+    -ms-overflow-style: node;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .deals-cards::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera*/
   }
 
   .deal-card {
